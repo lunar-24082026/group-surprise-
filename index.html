@@ -35,7 +35,6 @@
 
   h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-  /* ============ SLIDER SYSTEM ============ */
   .slider-viewport {
     width: 100vw; height: 100vh;
     overflow: hidden; position: relative;
@@ -67,7 +66,6 @@
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  /* ============ DECORATIVE BACKGROUND ITEMS ============ */
   .bg-decor {
     position: absolute; pointer-events: none; z-index: 0;
   }
@@ -85,7 +83,6 @@
   @keyframes confettiFall { 0% { transform: translateY(-30px) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg); opacity: 0; } }
   .confetti-fall { animation: confettiFall linear infinite; }
 
-  /* ============ NEXT BUTTON BAR ============ */
   .slide-footer {
     flex-shrink: 0; width: 100%;
     display: flex; align-items: center; justify-content: center;
@@ -109,7 +106,6 @@
   }
   .next-btn:active { transform: translateY(0) scale(0.97); }
 
-  /* ============ SPECIAL QUESTION BUTTON ============ */
   .special-btn {
     padding: 16px 36px; font-family: 'Poppins', sans-serif;
     font-size: 1rem; font-weight: 600; color: #fff;
@@ -124,7 +120,6 @@
   .special-btn:active { transform: scale(0.96); }
   @keyframes specialShimmer { to { background-position: 200% center; } }
 
-  /* Slide progress dots */
   .slide-dots {
     position: fixed; bottom: 8px; left: 50%;
     transform: translateX(-50%); display: none;
@@ -137,7 +132,6 @@
   }
   .dot.active { background: var(--rose); transform: scale(1.4); }
 
-  /* ============ FULL-SCREEN CAKE INTRO ============ */
   #cake-intro {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(180deg, var(--cream) 0%, var(--lavender-light) 100%);
@@ -152,7 +146,6 @@
   }
   #main-content.visible { opacity: 1; pointer-events: auto; }
 
-  /* ============ CAKE ============ */
   .cake-container {
     position: relative; width: clamp(320px, 80vw, 540px);
     height: clamp(380px, 65vh, 640px);
@@ -206,7 +199,6 @@
   .confetti-dot { position: absolute; top: -20px; width: 9px; height: 9px; animation: fall linear infinite; z-index: 0; }
   @keyframes fall { to { transform: translateY(110vh) rotate(720deg); } }
 
-  /* ============ HERO HEADING ============ */
   #hero-content h1 {
     font-family: 'Fredoka', sans-serif;
     font-size: clamp(3.5rem, 13vw, 8.5rem);
@@ -225,7 +217,6 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
   .tagline { margin-top: 24px; font-size: clamp(1rem, 3vw, 1.35rem); font-weight: 400; letter-spacing: 3px; text-transform: uppercase; color: var(--rose); animation: fadeUp 1.2s 0.4s ease both; text-align: center; }
 
-  /* ============ SECTIONS ============ */
   .big-number { font-family: 'Playfair Display', serif; font-size: clamp(6rem, 25vw, 13rem); font-weight: 900; color: var(--rose); line-height: 1; text-shadow: 6px 6px 0 var(--lavender-light); }
   .level-up { margin-top: 20px; font-size: clamp(1.3rem, 4vw, 2rem); opacity: 0; transform: scale(0.5); transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
   .level-up.unlocked { opacity: 1; transform: scale(1); }
@@ -250,12 +241,33 @@
   .reason-card .emoji { font-size: 1.8rem; display: block; margin-bottom: 8px; }
   .reason-card p { font-size: 0.88rem; font-weight: 400; }
 
+  /* ============ STYLED BADGE (shared between wishes & memories) ============ */
+  .styled-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 18px; background: #fce7f3;
+    color: #9d174d; font-weight: 700; font-size: 0.8rem;
+    border-radius: 9999px; margin-bottom: 14px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .styled-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    font-weight: 700; margin-bottom: 8px; text-align: center;
+    color: #111827;
+  }
+  .styled-subtitle {
+    font-size: 0.95rem; color: #6b7280; line-height: 1.6;
+    margin-bottom: 24px; text-align: center; max-width: 550px;
+  }
+
+  /* ============ WISHES WALL ============ */
   .wishes-wall { display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; max-width: 950px; margin-top: 24px; }
   .note { background: var(--cream); width: 250px; padding: 38px 20px 20px; border-radius: 4px; box-shadow: 0 10px 25px rgba(74,59,82,0.15); position: relative; transition: transform 0.3s ease; font-size: 0.88rem; line-height: 1.6; }
   .note::before { content: ''; position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 80px; height: 24px; background: rgba(205,180,219,0.55); border-radius: 2px; }
   .note:nth-child(1) { transform: rotate(-3deg); }
   .note:nth-child(2) { transform: rotate(2deg); background: var(--lavender-light); }
   .note:nth-child(3) { transform: rotate(-1.5deg); background: #fdeef0; }
+  .note:nth-child(4) { transform: rotate(2.5deg); background: #f0f7f4; }
   .note:hover { transform: rotate(0) scale(1.05); z-index: 2; }
   .note .from { display: block; margin-top: 10px; font-weight: 600; color: var(--rose); font-size: 0.82rem; }
 
@@ -277,7 +289,6 @@
   #toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--ink); color: var(--cream); padding: 14px 28px; border-radius: 999px; font-size: 0.95rem; opacity: 0; pointer-events: none; transition: all 0.4s ease; z-index: 1003; white-space: nowrap; }
   #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-  /* ============ DO YOU LOVE ME ============ */
   .question-slide { position: relative; background: linear-gradient(135deg, var(--lavender-light), #fdeef0, var(--cream)); }
   .love-question { font-family: 'Fredoka', sans-serif; font-size: clamp(2.2rem, 8vw, 4.5rem); font-weight: 700; text-align: center; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
   .love-emoji { font-size: clamp(3rem, 10vw, 6rem); display: block; margin-bottom: 20px; animation: heartBeat 1s ease infinite; }
@@ -292,14 +303,12 @@
   .no-btn.runaway { position: absolute; z-index: 5; }
   .attempt-counter { font-size: 0.8rem; color: var(--lavender); margin-top: 16px; font-weight: 400; letter-spacing: 1px; min-height: 20px; }
 
-  /* ============ I LOVE YOU TOO ============ */
   .love-response { font-family: 'Fredoka', sans-serif; font-size: clamp(3rem, 12vw, 7rem); font-weight: 700; text-align: center; line-height: 1.1; background: linear-gradient(135deg, #ff6b9d, #c44dff, #ff6b9d, #ffb347); background-size: 300% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 3s linear infinite; }
   .love-response-sub { font-size: clamp(1rem, 3vw, 1.4rem); color: var(--ink); font-weight: 400; margin-top: 20px; text-align: center; max-width: 500px; line-height: 1.7; }
   .hearts-rain { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 0; }
   .floating-heart { position: absolute; font-size: 1.5rem; animation: heartFloat linear infinite; opacity: 0.6; }
   @keyframes heartFloat { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
 
-  /* ============ FROM ME SLIDES ============ */
   .from-text { font-family: 'Fredoka', sans-serif; font-size: clamp(2.5rem, 10vw, 5.5rem); font-weight: 700; text-align: center; line-height: 1.2; color: var(--ink); }
   .from-text.proud { background: linear-gradient(135deg, var(--rose), #ff9a9e, var(--lavender), var(--rose)); background-size: 300% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 4s linear infinite; }
   .from-emoji { font-size: clamp(3rem, 10vw, 6rem); display: block; margin-bottom: 20px; animation: proudBounce 1.5s ease infinite; }
@@ -315,7 +324,6 @@
   .credit-name { background: #fff; padding: 10px 22px; border-radius: 999px; font-family: 'Fredoka', sans-serif; font-size: 1rem; font-weight: 500; color: var(--ink); box-shadow: 0 4px 15px rgba(183,110,121,0.15); border: 2px solid var(--rose-light); transition: transform 0.3s ease, box-shadow 0.3s ease; }
   .credit-name:hover { transform: translateY(-4px) rotate(-2deg); box-shadow: 0 8px 25px rgba(183,110,121,0.25); }
 
-  /* ============ GIFT BUTTON ============ */
   .gift-btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 34px; padding: 18px 44px; font-family: 'Fredoka', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; text-decoration: none; background: linear-gradient(135deg, #ff6b9d, #c44dff, #ffb347, #ff6b9d); background-size: 300% auto; border: none; border-radius: 999px; cursor: pointer; box-shadow: 0 10px 35px rgba(196,77,255,0.4); animation: giftShimmer 4s linear infinite, giftPulse 2s ease-in-out infinite; transition: transform 0.3s ease; }
   .gift-btn:hover { transform: scale(1.1) rotate(-2deg); }
   .gift-btn:active { transform: scale(0.96); }
@@ -325,7 +333,7 @@
   @keyframes giftWiggle { 0%, 100% { transform: rotate(0deg) scale(1); } 25% { transform: rotate(-12deg) scale(1.12); } 75% { transform: rotate(12deg) scale(1.12); } }
   .final-footer-text { margin-top: 40px; font-size: 0.8rem; color: var(--lavender); letter-spacing: 2px; text-transform: uppercase; }
 
-  /* ============ MEMORIES SECTION (SLIDE 5) ============ */
+  /* ============ MEMORIES SECTION ============ */
   .memories-slide-bg {
     background: linear-gradient(180deg, var(--cream) 0%, #fff0f5 50%, var(--lavender-light) 100%);
   }
@@ -413,7 +421,6 @@
     font-family: 'Poppins', sans-serif;
   }
   .mem-like-btn:hover { background: #e11d48; color: white; transform: scale(1.06); }
-
   .mem-empty {
     text-align: center; color: #9ca3af; padding: 40px 20px;
     font-size: 0.9rem; grid-column: 1 / -1;
@@ -449,7 +456,6 @@
 <div id="toast">WHAT IS THIS BHAVYA 😹</div>
 <div class="slide-dots" id="slide-dots"></div>
 
-<!-- ============ FULL-SCREEN CAKE INTRO ============ -->
 <div id="cake-intro">
   <div class="cake-container" id="cake">
     <div class="cake-plate"></div>
@@ -488,7 +494,6 @@
   <p class="blow-counter" id="blow-counter">🔥 16 taps remaining</p>
 </div>
 
-<!-- ============ MAIN SLIDER ============ -->
 <div id="main-content">
   <div class="slider-viewport">
     <div class="slider-track" id="slider">
@@ -503,14 +508,11 @@
         <svg class="bg-decor float-1" style="top:8%; right:15%; width:140px; opacity:0.3;" viewBox="0 0 200 40" fill="none"><path d="M0 20 Q 50 50 100 20 T 200 20" stroke="#eec9cd" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
         <svg class="bg-decor float-5" style="top:35%; left:8%; width:20px; opacity:0.6;" viewBox="0 0 24 24" fill="#cdb4db"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
         <svg class="bg-decor float-3" style="top:50%; right:12%; width:16px; opacity:0.5;" viewBox="0 0 24 24" fill="#eec9cd"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-
         <div class="slide-content centered" id="hero-content">
           <h1>Happy Birthday,<br><span class="name">Bhavya!</span></h1>
           <p class="tagline">a very very special day</p>
         </div>
-        <div class="slide-footer">
-          <button class="next-btn" data-next="1">you want to read more? →</button>
-        </div>
+        <div class="slide-footer"><button class="next-btn" data-next="1">you want to read more? →</button></div>
       </div>
 
       <!-- SLIDE 1: AGE REVEAL -->
@@ -520,77 +522,59 @@
         <div class="bg-decor confetti-fall" style="left:55%; width:12px; height:6px; background:#b76e79; border-radius:2px; animation-duration:8s; animation-delay:-0.5s;"></div>
         <div class="bg-decor confetti-fall" style="left:75%; width:9px; height:9px; background:#efe6f7; border-radius:50%; animation-duration:5s; animation-delay:-2s;"></div>
         <div class="bg-decor confetti-fall" style="left:90%; width:7px; height:12px; background:#cdb4db; border-radius:2px; animation-duration:9s; animation-delay:-4s;"></div>
-        <svg class="bg-decor float-1" style="bottom:15%; left:8%; width:50px; opacity:0.5;" viewBox="0 0 80 80" fill="none"><path d="M20 60 L40 20" stroke="#b76e79" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="18" r="6" fill="#eec9cd"/><path d="M36 14 L30 6" stroke="#cdb4db" stroke-width="2" stroke-linecap="round"/><path d="M44 14 L50 6" stroke="#eec9cd" stroke-width="2" stroke-linecap="round"/><path d="M40 12 L40 4" stroke="#b76e79" stroke-width="2" stroke-linecap="round"/></svg>
-        <svg class="bg-decor float-3" style="bottom:20%; right:10%; width:50px; opacity:0.5; transform:scaleX(-1);" viewBox="0 0 80 80" fill="none"><path d="M20 60 L40 20" stroke="#cdb4db" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="18" r="6" fill="#b76e79"/><path d="M36 14 L30 6" stroke="#eec9cd" stroke-width="2" stroke-linecap="round"/><path d="M44 14 L50 6" stroke="#cdb4db" stroke-width="2" stroke-linecap="round"/><path d="M40 12 L40 4" stroke="#eec9cd" stroke-width="2" stroke-linecap="round"/></svg>
-
+        <svg class="bg-decor float-1" style="bottom:15%; left:8%; width:50px; opacity:0.5;" viewBox="0 0 80 80" fill="none"><path d="M20 60 L40 20" stroke="#b76e79" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="18" r="6" fill="#eec9cd"/></svg>
+        <svg class="bg-decor float-3" style="bottom:20%; right:10%; width:50px; opacity:0.5; transform:scaleX(-1);" viewBox="0 0 80 80" fill="none"><path d="M20 60 L40 20" stroke="#cdb4db" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="18" r="6" fill="#b76e79"/></svg>
         <div class="slide-content centered">
           <p class="section-label reveal">Drumroll please…</p>
           <div class="big-number" id="age-counter">0</div>
           <p class="level-up" id="level-msg">🎮 Level 17 Unlocked! 🐾🍰</p>
         </div>
-        <div class="slide-footer">
-          <button class="next-btn" data-next="2">you want to read more? →</button>
-        </div>
+        <div class="slide-footer"><button class="next-btn" data-next="2">you want to read more? →</button></div>
       </div>
 
       <!-- SLIDE 2: TIMELINE -->
       <div class="slide" id="slide-timeline">
-        <svg class="bg-decor float-4" style="top:8%; right:6%; width:50px; opacity:0.35;" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="26" stroke="#cdb4db" stroke-width="2"/><circle cx="30" cy="30" r="20" stroke="#eec9cd" stroke-width="0.5"/><line x1="30" y1="30" x2="30" y2="14" stroke="#b76e79" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="30" x2="42" y2="30" stroke="#cdb4db" stroke-width="1.5" stroke-linecap="round"/><circle cx="30" cy="30" r="2" fill="#b76e79"/></svg>
-        <svg class="bg-decor float-2" style="top:20%; left:5%; width:18px; opacity:0.6;" viewBox="0 0 24 24" fill="#cdb4db"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-        <svg class="bg-decor float-5" style="bottom:15%; right:8%; width:14px; opacity:0.5;" viewBox="0 0 24 24" fill="#eec9cd"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-        <svg class="bg-decor float-1" style="bottom:30%; left:10%; width:16px; opacity:0.45;" viewBox="0 0 24 24" fill="#b76e79"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-
+        <svg class="bg-decor float-4" style="top:8%; right:6%; width:50px; opacity:0.35;" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="26" stroke="#cdb4db" stroke-width="2"/><line x1="30" y1="30" x2="30" y2="14" stroke="#b76e79" stroke-width="2" stroke-linecap="round"/><line x1="30" y1="30" x2="42" y2="30" stroke="#cdb4db" stroke-width="1.5" stroke-linecap="round"/><circle cx="30" cy="30" r="2" fill="#b76e79"/></svg>
         <div class="slide-content">
           <p class="section-label reveal">A highly official documentary</p>
           <h2 class="reveal" style="font-size:clamp(1.5rem,5vw,2.2rem); text-align:center;">The Bhavya Story</h2>
           <div class="timeline" id="timeline-container"></div>
         </div>
-        <div class="slide-footer">
-          <button class="next-btn" data-next="3">you want to read more? →</button>
-        </div>
+        <div class="slide-footer"><button class="next-btn" data-next="3">you want to read more? →</button></div>
       </div>
 
       <!-- SLIDE 3: REASONS -->
       <div class="slide" id="slide-reasons">
         <svg class="bg-decor float-1" style="top:10%; left:6%; width:30px; opacity:0.45;" viewBox="0 0 32 32" fill="#eec9cd"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
         <svg class="bg-decor float-3" style="top:25%; right:8%; width:22px; opacity:0.5;" viewBox="0 0 32 32" fill="#cdb4db"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
-        <svg class="bg-decor float-5" style="bottom:18%; left:10%; width:26px; opacity:0.4;" viewBox="0 0 32 32" fill="#b76e79"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
-        <svg class="bg-decor float-2" style="bottom:25%; right:12%; width:20px; opacity:0.4;" viewBox="0 0 32 32" fill="#efe6f7"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
-        <svg class="bg-decor float-4" style="top:50%; left:4%; width:35px; opacity:0.35;" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="20" r="8" fill="#eec9cd" opacity="0.8"/><circle cx="20" cy="28" r="8" fill="#cdb4db" opacity="0.8"/><circle cx="40" cy="28" r="8" fill="#eec9cd" opacity="0.8"/><circle cx="25" cy="38" r="8" fill="#cdb4db" opacity="0.8"/><circle cx="35" cy="38" r="8" fill="#eec9cd" opacity="0.8"/><circle cx="30" cy="30" r="5" fill="#b76e79"/></svg>
-        <svg class="bg-decor float-1" style="top:40%; right:5%; width:30px; opacity:0.3;" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="20" r="8" fill="#efe6f7" opacity="0.8"/><circle cx="20" cy="28" r="8" fill="#eec9cd" opacity="0.8"/><circle cx="40" cy="28" r="8" fill="#efe6f7" opacity="0.8"/><circle cx="25" cy="38" r="8" fill="#eec9cd" opacity="0.8"/><circle cx="35" cy="38" r="8" fill="#efe6f7" opacity="0.8"/><circle cx="30" cy="30" r="5" fill="#cdb4db"/></svg>
-
         <div class="slide-content">
           <p class="section-label reveal">Scientifically proven facts</p>
           <h2 class="reveal" style="font-size:clamp(1.5rem,5vw,2.2rem); text-align:center;">Reasons We All Love You</h2>
           <div class="reasons-grid" id="reasons-container"></div>
         </div>
-        <div class="slide-footer">
-          <button class="next-btn" data-next="4">you want to read more? →</button>
-        </div>
+        <div class="slide-footer"><button class="next-btn" data-next="4">you want to read more? →</button></div>
       </div>
 
-      <!-- SLIDE 4: WISHES -->
+      <!-- SLIDE 4: WISHES (NEW STYLED HEADING) -->
       <div class="slide" id="slide-wishes">
         <svg class="bg-decor float-2" style="top:12%; left:6%; width:40px; opacity:0.4;" viewBox="0 0 60 60" fill="none"><rect x="10" y="22" width="40" height="30" rx="4" fill="#eec9cd"/><rect x="8" y="18" width="44" height="10" rx="3" fill="#cdb4db"/><rect x="27" y="18" width="6" height="34" fill="#b76e79" opacity="0.5"/><path d="M20 18 Q 30 5 30 18" stroke="#b76e79" stroke-width="2" fill="none"/><path d="M40 18 Q 30 5 30 18" stroke="#b76e79" stroke-width="2" fill="none"/></svg>
         <svg class="bg-decor float-4" style="bottom:15%; right:8%; width:35px; opacity:0.35;" viewBox="0 0 60 60" fill="none"><rect x="10" y="22" width="40" height="30" rx="4" fill="#cdb4db"/><rect x="8" y="18" width="44" height="10" rx="3" fill="#efe6f7"/><rect x="27" y="18" width="6" height="34" fill="#eec9cd" opacity="0.5"/><path d="M20 18 Q 30 5 30 18" stroke="#eec9cd" stroke-width="2" fill="none"/><path d="M40 18 Q 30 5 30 18" stroke="#eec9cd" stroke-width="2" fill="none"/></svg>
         <svg class="bg-decor float-5" style="top:30%; right:5%; width:16px; opacity:0.6;" viewBox="0 0 24 24" fill="#cdb4db"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
         <svg class="bg-decor float-1" style="bottom:30%; left:8%; width:14px; opacity:0.5;" viewBox="0 0 24 24" fill="#eec9cd"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
 
-        <div class="slide-content centered">
-          <p class="section-label reveal">Fresh off the press</p>
-          <h2 class="reveal" style="font-size:clamp(1.5rem,5vw,2.2rem); text-align:center;">Birthday Wishes Wall</h2>
+        <div class="slide-content">
+          <span class="styled-badge reveal">💌 Fresh Off The Press</span>
+          <h2 class="styled-title reveal">Birthday Wishes Wall</h2>
+          <p class="styled-subtitle reveal">Heartfelt messages from everyone who adores you, Bhavya.</p>
           <div class="wishes-wall" id="wishes-container"></div>
         </div>
-        <div class="slide-footer">
-          <button class="next-btn" data-next="5">you want to read more? →</button>
-        </div>
+        <div class="slide-footer"><button class="next-btn" data-next="5">you want to read more? →</button></div>
       </div>
 
-      <!-- SLIDE 5: MEMORIES -->
+      <!-- SLIDE 5: MEMORIES (ORIGINAL GRID LAYOUT) -->
       <div class="slide memories-slide-bg" id="slide-memories">
         <svg class="bg-decor float-1" style="top:8%; left:5%; width:28px; opacity:0.45;" viewBox="0 0 32 32" fill="#eec9cd"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
         <svg class="bg-decor float-3" style="top:20%; right:6%; width:22px; opacity:0.4;" viewBox="0 0 24 24" fill="#cdb4db"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-        <svg class="bg-decor float-5" style="bottom:15%; left:8%; width:30px; opacity:0.35;" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="20" r="8" fill="#eec9cd" opacity="0.8"/><circle cx="20" cy="28" r="8" fill="#cdb4db" opacity="0.8"/><circle cx="40" cy="28" r="8" fill="#eec9cd" opacity="0.8"/><circle cx="25" cy="38" r="8" fill="#cdb4db" opacity="0.8"/><circle cx="35" cy="38" r="8" fill="#eec9cd" opacity="0.8"/><circle cx="30" cy="30" r="5" fill="#b76e79"/></svg>
         <svg class="bg-decor float-2" style="bottom:25%; right:10%; width:20px; opacity:0.4;" viewBox="0 0 32 32" fill="#cdb4db"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
         <div class="bg-decor confetti-fall" style="left:20%; width:8px; height:8px; background:#cdb4db; border-radius:50%; animation-duration:8s; animation-delay:-1s;"></div>
         <div class="bg-decor confetti-fall" style="left:70%; width:6px; height:12px; background:#eec9cd; border-radius:2px; animation-duration:6s; animation-delay:-3s;"></div>
@@ -610,17 +594,12 @@
 
           <div id="memGrid" class="mem-grid"></div>
         </div>
-        <div class="slide-footer">
-          <button class="next-btn" data-next="6">you want to read more? →</button>
-        </div>
+        <div class="slide-footer"><button class="next-btn" data-next="6">you want to read more? →</button></div>
       </div>
 
       <!-- SLIDE 6: FINAL MESSAGE -->
       <div class="slide" id="slide-final">
-        <svg class="bg-decor float-1" style="top:8%; right:6%; width:50px; opacity:0.35;" viewBox="0 0 80 60" fill="none"><rect x="5" y="10" width="70" height="45" rx="6" fill="#efe6f7"/><path d="M5 10 L40 35 L75 10" stroke="#cdb4db" stroke-width="2" fill="none"/><path d="M5 55 L30 35" stroke="#eec9cd" stroke-width="1" fill="none"/><path d="M75 55 L50 35" stroke="#eec9cd" stroke-width="1" fill="none"/></svg>
-        <svg class="bg-decor float-3" style="bottom:12%; left:5%; width:60px; opacity:0.35;" viewBox="0 0 100 100" fill="none"><path d="M30 70 Q 40 40 50 30" stroke="#5a7a68" stroke-width="2" stroke-linecap="round"/><path d="M35 72 Q 55 50 65 42" stroke="#5a7a68" stroke-width="1.5" stroke-linecap="round"/><circle cx="50" cy="30" r="14" fill="#b76e79" opacity="0.7"/><path d="M42 27 Q 50 18 58 27 Q 62 36 50 40 Q 38 36 42 27 Z" fill="#eec9cd"/><circle cx="65" cy="45" r="10" fill="#cdb4db" opacity="0.7"/><path d="M20 72 Q 35 65 50 80 Q 40 85 20 72 Z" fill="#cdb4db"/></svg>
-        <svg class="bg-decor float-5" style="top:40%; left:4%; width:14px; opacity:0.5;" viewBox="0 0 24 24" fill="#eec9cd"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-
+        <svg class="bg-decor float-1" style="top:8%; right:6%; width:50px; opacity:0.35;" viewBox="0 0 80 60" fill="none"><rect x="5" y="10" width="70" height="45" rx="6" fill="#efe6f7"/><path d="M5 10 L40 35 L75 10" stroke="#cdb4db" stroke-width="2" fill="none"/></svg>
         <div class="slide-content">
           <p class="section-label reveal">One last thing</p>
           <div class="final-letter reveal" id="final-letter">
@@ -641,38 +620,26 @@ Once again, happiest birthday to you! 🎉❤️ We hope your day is filled with
           <button id="confetti-btn" class="reveal">Press me. You know you want to. 🎂</button>
           <footer class="reveal">made with 💜 for Bhavya</footer>
         </div>
-        <div class="slide-footer">
-          <button class="next-btn" data-next="7">you want to read more? →</button>
-        </div>
+        <div class="slide-footer"><button class="next-btn" data-next="7">you want to read more? →</button></div>
       </div>
 
       <!-- SLIDE 7: FROM ME -->
       <div class="slide question-slide" id="slide-from-me">
         <svg class="bg-decor float-2" style="top:10%; left:8%; width:50px; opacity:0.4;" viewBox="0 0 80 60" fill="none"><path d="M10 50 L20 20 L35 35 L40 10 L45 35 L60 20 L70 50 Z" fill="#cdb4db" opacity="0.7"/><rect x="8" y="48" width="64" height="8" rx="3" fill="#eec9cd"/></svg>
-        <svg class="bg-decor float-4" style="bottom:15%; right:10%; width:18px; opacity:0.6;" viewBox="0 0 24 24" fill="#b76e79"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-        <svg class="bg-decor float-1" style="top:50%; right:6%; width:14px; opacity:0.5;" viewBox="0 0 24 24" fill="#cdb4db"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-        <svg class="bg-decor float-5" style="bottom:35%; left:6%; width:16px; opacity:0.5;" viewBox="0 0 24 24" fill="#eec9cd"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-
         <div class="slide-content centered">
           <span class="from-emoji reveal">😎</span>
           <div class="from-text proud reveal">this was made by me, me and me</div>
-          <p class="love-subtext reveal" style="margin-top:20px; font-size:1.1rem;">
-            yes, I made this whole thing. impressed? 😏
-          </p>
+          <p class="love-subtext reveal" style="margin-top:20px; font-size:1.1rem;">yes, I made this whole thing. impressed? 😏</p>
         </div>
-        <div class="slide-footer">
-          <button class="next-btn" data-next="8">you want to read more? →</button>
-        </div>
+        <div class="slide-footer"><button class="next-btn" data-next="8">you want to read more? →</button></div>
       </div>
 
-      <!-- SLIDE 8: CREDITS + SPECIAL QUESTION -->
+      <!-- SLIDE 8: CREDITS -->
       <div class="slide jk-slide" id="slide-credits">
         <div class="bg-decor confetti-fall" style="left:15%; width:10px; height:10px; background:#cdb4db; border-radius:50%; animation-duration:7s; animation-delay:-0.5s;"></div>
         <div class="bg-decor confetti-fall" style="left:40%; width:8px; height:14px; background:#eec9cd; border-radius:2px; animation-duration:6s; animation-delay:-2s;"></div>
         <div class="bg-decor confetti-fall" style="left:65%; width:12px; height:6px; background:#b76e79; border-radius:2px; animation-duration:8s; animation-delay:-1s;"></div>
         <div class="bg-decor confetti-fall" style="left:85%; width:9px; height:9px; background:#efe6f7; border-radius:50%; animation-duration:5s; animation-delay:-3.5s;"></div>
-        <svg class="bg-decor float-3" style="top:10%; right:8%; width:45px; opacity:0.4;" viewBox="0 0 60 80" fill="none"><path d="M10 70 L30 10 L50 70 Z" fill="#cdb4db"/><ellipse cx="30" cy="70" rx="22" ry="5" fill="#eec9cd"/><circle cx="30" cy="10" r="5" fill="#b76e79"/><path d="M10 35 Q 30 42 50 35" stroke="#efe6f7" stroke-width="2" fill="none"/><path d="M14 50 Q 30 56 46 50" stroke="#eec9cd" stroke-width="2" fill="none"/></svg>
-
         <div class="slide-content centered">
           <span class="jk-emoji reveal">😜</span>
           <div class="jk-text reveal">just kidding!</div>
@@ -682,10 +649,9 @@ Once again, happiest birthday to you! 🎉❤️ We hope your day is filled with
             <span class="credit-name reveal">💜 Vedambika</span>
             <span class="credit-name reveal">🌸 Bhadra</span>
             <span class="credit-name reveal">🎉 Diya</span>
+            <span class="credit-name reveal">✨ Arush</span>
           </div>
-          <p class="credits reveal" style="margin-top:28px;">
-            Because it takes a whole squad<br>to celebrate someone this special 💜
-          </p>
+          <p class="credits reveal" style="margin-top:28px;">Because it takes a whole squad<br>to celebrate someone this special 💜</p>
           <p class="final-footer-text reveal">happy birthday bhavya · we all love you 🎂</p>
           <button class="special-btn reveal" id="special-btn">💌 a special question from me</button>
         </div>
@@ -695,9 +661,6 @@ Once again, happiest birthday to you! 🎉❤️ We hope your day is filled with
       <div class="slide question-slide" id="slide-love-question">
         <svg class="bg-decor float-1" style="top:10%; left:8%; width:28px; opacity:0.4;" viewBox="0 0 32 32" fill="#eec9cd"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
         <svg class="bg-decor float-3" style="top:20%; right:10%; width:20px; opacity:0.5;" viewBox="0 0 32 32" fill="#cdb4db"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
-        <svg class="bg-decor float-5" style="bottom:20%; left:12%; width:24px; opacity:0.35;" viewBox="0 0 32 32" fill="#b76e79"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
-        <svg class="bg-decor float-2" style="bottom:30%; right:14%; width:18px; opacity:0.4;" viewBox="0 0 32 32" fill="#efe6f7"><path d="M16 28 C 16 28 4 20 4 12 C 4 7 8 4 12 4 C 14 4 16 6 16 8 C 16 6 18 4 20 4 C 24 4 28 7 28 12 C 28 20 16 28 16 28 Z"/></svg>
-
         <div class="slide-content centered">
           <span class="love-emoji" id="love-emoji">🥺</span>
           <div class="love-question reveal" id="love-question-text">Do you love me???</div>
@@ -713,16 +676,11 @@ Once again, happiest birthday to you! 🎉❤️ We hope your day is filled with
       <!-- SLIDE 10: I LOVE YOU TOO + GIFT -->
       <div class="slide question-slide" id="slide-love-response">
         <div class="hearts-rain" id="hearts-rain"></div>
-        <svg class="bg-decor float-4" style="top:5%; left:5%; width:60px; opacity:0.4; z-index:0;" viewBox="0 0 100 100" fill="none"><path d="M30 70 Q 40 40 50 30" stroke="#5a7a68" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="30" r="14" fill="#b76e79" opacity="0.7"/><path d="M42 27 Q 50 18 58 27 Q 62 36 50 40 Q 38 36 42 27 Z" fill="#eec9cd"/><circle cx="65" cy="45" r="10" fill="#cdb4db" opacity="0.7"/><path d="M20 72 Q 35 65 50 80 Q 40 85 20 72 Z" fill="#cdb4db"/></svg>
-        <svg class="bg-decor float-1" style="bottom:10%; right:5%; width:60px; opacity:0.4; z-index:0; transform:scaleX(-1);" viewBox="0 0 100 100" fill="none"><path d="M30 70 Q 40 40 50 30" stroke="#5a7a68" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="30" r="14" fill="#cdb4db" opacity="0.7"/><path d="M42 27 Q 50 18 58 27 Q 62 36 50 40 Q 38 36 42 27 Z" fill="#efe6f7"/><circle cx="65" cy="45" r="10" fill="#b76e79" opacity="0.7"/><path d="M20 72 Q 35 65 50 80 Q 40 85 20 72 Z" fill="#eec9cd"/></svg>
-        <svg class="bg-decor float-5" style="top:40%; right:8%; width:16px; opacity:0.5; z-index:0;" viewBox="0 0 24 24" fill="#eec9cd"><path d="M12 2 L14 9 L22 12 L14 15 L12 22 L10 15 L2 12 L10 9 Z"/></svg>
-
+        <svg class="bg-decor float-4" style="top:5%; left:5%; width:60px; opacity:0.4; z-index:0;" viewBox="0 0 100 100" fill="none"><path d="M30 70 Q 40 40 50 30" stroke="#5a7a68" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="30" r="14" fill="#b76e79" opacity="0.7"/><path d="M42 27 Q 50 18 58 27 Q 62 36 50 40 Q 38 36 42 27 Z" fill="#eec9cd"/><circle cx="65" cy="45" r="10" fill="#cdb4db" opacity="0.7"/></svg>
+        <svg class="bg-decor float-1" style="bottom:10%; right:5%; width:60px; opacity:0.4; z-index:0; transform:scaleX(-1);" viewBox="0 0 100 100" fill="none"><path d="M30 70 Q 40 40 50 30" stroke="#5a7a68" stroke-width="2" stroke-linecap="round"/><circle cx="50" cy="30" r="14" fill="#cdb4db" opacity="0.7"/><path d="M42 27 Q 50 18 58 27 Q 62 36 50 40 Q 38 36 42 27 Z" fill="#efe6f7"/><circle cx="65" cy="45" r="10" fill="#b76e79" opacity="0.7"/></svg>
         <div class="slide-content centered" style="z-index:2;">
           <div class="love-response reveal" id="love-response-text">I tooo love you</div>
-          <p class="love-response-sub reveal">
-            Always have, always will. 💜<br>
-            Now go have the best birthday ever, Bhavya! 🎂🐱✨
-          </p>
+          <p class="love-response-sub reveal">Always have, always will. 💜<br>Now go have the best birthday ever, Bhavya! 🎂🐱✨</p>
           <a href="https://lunar-24082026.github.io/boyfriend-surprise/" target="_blank" rel="noopener" class="gift-btn reveal" id="gift-btn">
             <span class="gift-icon">🎁</span> my gift for you
           </a>
@@ -734,30 +692,11 @@ Once again, happiest birthday to you! 🎉❤️ We hope your day is filled with
 </div>
 
 <script>
-/* =====================================================
-   CONTENT DATA
-   ===================================================== */
 const TIMELINE = [
-  {
-    when: "Class 9",
-    title: "Where It All Began",
-    text: "To be honest, I didn't even think that we would all be friends, or that this would turn into a whole era of good memories."
-  },
-  {
-    when: "Class 10",
-    title: "The Answer Paper Mission",
-    text: "We bunked classes for arranging answer papers and… zero regrets. Would bunk again."
-  },
-  {
-    when: "Onam Day",
-    title: "The Wonderful Onam",
-    text: "The Onam day — it was a wonderful day. Zero explanation needed. And your dance was SO good."
-  },
-  {
-    when: "Today",
-    title: "Level 17",
-    text: "Well, now you're seventeen! A whole year of new chaos is waiting for you. And we'll be there for all of it."
-  }
+  { when: "Class 9", title: "Where It All Began", text: "To be honest, I didn't even think that we would all be friends, or that this would turn into a whole era of good memories." },
+  { when: "Class 10", title: "The Answer Paper Mission", text: "We bunked classes for arranging answer papers and… zero regrets. Would bunk again." },
+  { when: "Onam Day", title: "The Wonderful Onam", text: "The Onam day — it was a wonderful day. Zero explanation needed. And your dance was SO good." },
+  { when: "Today", title: "Level 17", text: "Well, now you're seventeen! A whole year of new chaos is waiting for you. And we'll be there for all of it." }
 ];
 
 const REASONS = [
@@ -771,707 +710,203 @@ const REASONS = [
 const WISHES = [
   { text: "Happy Birthday Bhavya 🥳", from: "— Karthik" },
   { text: "Happiest birthday Bhavyaaa 🫶🏻💗 You're genuinely one of the sweetest people ever and always there to help. Really glad you're my friend — hope you have the best day! 💕", from: "— Vedambika" },
-  { text: "Happy birthday dear Bhavya. You've always been there for me and I will always be there for you. You're the kindest and most amazing person I've met. May we stay friends forever. Have a wonderful day girllll...... With lots of love 💜", from: "— Bhadra" }
+  { text: "Happy birthday dear Bhavya. You've always been there for me and I will always be there for you. You're the kindest and most amazing person I've met. May we stay friends forever. Have a wonderful day girllll...... With lots of love 💜", from: "— Bhadra" },
+  { text: "Happy Birthday, dear Bhavya! May your year ahead be as bright, joyful, and amazing as the positive energy you bring to everyone around you! Thank you for being someone who truly makes the world brighter just by being in it!!!", from: "— Arush" }
 ];
 
-/* =====================================================
-   RENDER STATIC CONTENT
-   ===================================================== */
 document.getElementById('timeline-container').innerHTML = TIMELINE.map(function(m) {
-  return '<div class="t-item reveal">' +
-    '<span class="t-when">' + m.when + '</span>' +
-    '<h3>' + m.title + '</h3>' +
-    '<p>' + m.text + '</p>' +
-  '</div>';
+  return '<div class="t-item reveal"><span class="t-when">' + m.when + '</span><h3>' + m.title + '</h3><p>' + m.text + '</p></div>';
 }).join('');
 
 document.getElementById('reasons-container').innerHTML = REASONS.map(function(r) {
-  return '<div class="reason-card reveal">' +
-    '<span class="emoji">' + r.emoji + '</span>' +
-    '<p>' + r.text + '</p>' +
-  '</div>';
+  return '<div class="reason-card reveal"><span class="emoji">' + r.emoji + '</span><p>' + r.text + '</p></div>';
 }).join('');
 
 document.getElementById('wishes-container').innerHTML = WISHES.map(function(w) {
-  return '<div class="note reveal">' + w.text +
-    '<span class="from">' + w.from + '</span>' +
-  '</div>';
+  return '<div class="note reveal">' + w.text + '<span class="from">' + w.from + '</span></div>';
 }).join('');
 
-/* =====================================================
-   MEMORIES SYSTEM
-   ===================================================== */
 const DEFAULT_MEMORIES = [
-  {
-    id: 1,
-    author: "Diya",
-    title: "Happy Birthday",
-    story: "Happy Birthday Bhavya, I hope you have a nice birthday and cake. Be happy on this day! ✨🎂",
-    category: "Funny",
-    date: "Class 11",
-    image: "",
-    likes: 8
-  },
-  {
-    id: 2,
-    author: "Vedambika",
-    title: "School Days",
-    story: "From roaming around school after exams just to avoid paper discussions, to worrying about exams together and you helping me with so many questions — we have been through 2 years of Sanskrit and Shibu Sir suffering together 😭 I am really glad we have all these memories together 🩷🫶🏻 Happiest birthday Bhavya 🎀",
-    category: "Adventures",
-    date: "School Days",
-    image: "",
-    likes: 12
-  },
-  {
-    id: 3,
-    author: "Bhadra",
-    title: "Class 9 & 10",
-    story: "Hey Bhavya, as today is your birthday, I remember all the good memories I had with you. Do you remember how we used to do our little nature walks and pick flowers? We used to talk all the time, mostly judging other people or about boys and about the little things that happened in our day. In 9th, all the two benches were like a family — we always went everywhere in a group and we used to play a lot. I remember playing throw ball, truth or dare, and some random games with all of you. Those were some of the best days of my life. We used to be so happy, sitting in the grass and on the road just talking a lot. I don't know if you remember, but the first time I talked to you I asked a lot of questions just to get to know you — I didn't want us to get awkward sitting in silence. Even when most people had issues with me in our class, you didn't stop talking to me. I am really grateful for you Bhavya, for having you in my life as my friend and spending time with you. 💜",
-    category: "Heartfelt",
-    date: "Class 9 & 10",
-    image: "",
-    likes: 15
-  }
+  { id: 1, author: "Diya", title: "Happy Birthday", story: "Happy Birthday Bhavya, I hope you have a nice birthday and cake. Be happy on this day! ✨🎂", category: "Funny", date: "Class 11", image: "", likes: 8 },
+  { id: 2, author: "Vedambika", title: "School Days", story: "From roaming around school after exams just to avoid paper discussions, to worrying about exams together and you helping me with so many questions — we have been through 2 years of Sanskrit and Shibu Sir suffering together 😭 I am really glad we have all these memories together 🩷🫶🏻 Happiest birthday Bhavya 🎀", category: "Adventures", date: "School Days", image: "", likes: 12 },
+  { id: 3, author: "Bhadra", title: "Class 9 & 10", story: "Hey Bhavya, as today is your birthday, I remember all the good memories I had with you. Do you remember how we used to do our little nature walks and pick flowers? We used to talk all the time, mostly judging other people or about boys and about the little things that happened in our day. In 9th, all the two benches were like a family — we always went everywhere in a group and we used to play a lot. I remember playing throw ball, truth or dare, and some random games with all of you. Those were some of the best days of my life. We used to be so happy, sitting in the grass and on the road just talking a lot. I don't know if you remember, but the first time I talked to you I asked a lot of questions just to get to know you — I didn't want us to get awkward sitting in silence. Even when most people had issues with me in our class, you didn't stop talking to me. I am really grateful for you Bhavya, for having you in my life as my friend and spending time with you. 💜", category: "Heartfelt", date: "Class 9 & 10", image: "", likes: 15 },
+  { id: 4, author: "Arush", title: "How It All Began", story: "It's wild looking back at the first time we talked, because neither of us knew we were about to become such close friends. What started as just a normal, casual chat turned out to be super easy and fun right from the start. That one conversation opened the door to so many ridiculous laughs and great memories down the road. Happy Birthday, Bhavya—so glad we ended up talking that day!", category: "Heartfelt", date: "First Chat", image: "", likes: 18 }
 ];
 
-/* =========================
-   AUTO-SYNC MEMORIES
-   ========================= */
 const LIKES_KEY = 'bhavya_memory_likes';
-
-function loadLikes() {
-  try {
-    return JSON.parse(localStorage.getItem(LIKES_KEY)) || {};
-  } catch (e) {
-    return {};
-  }
-}
-
-function saveLikes(likesMap) {
-  localStorage.setItem(LIKES_KEY, JSON.stringify(likesMap));
-}
+function loadLikes() { try { return JSON.parse(localStorage.getItem(LIKES_KEY)) || {}; } catch(e) { return {}; } }
+function saveLikes(m) { localStorage.setItem(LIKES_KEY, JSON.stringify(m)); }
 
 function buildMemData() {
-  const likesMap = loadLikes();
-
-  // Migrate old full-memory storage → likes only
-  try {
-    const old = JSON.parse(localStorage.getItem('bhavya_memories') || 'null');
-    if (Array.isArray(old)) {
-      old.forEach(function(m) {
-        if (m && m.id != null) {
-          const oldLikes = m.likes || 0;
-          const current = likesMap[m.id] || 0;
-          likesMap[m.id] = Math.max(oldLikes, current);
-        }
-      });
-      saveLikes(likesMap);
-      localStorage.removeItem('bhavya_memories');
-    }
-  } catch (e) {}
-
-  return DEFAULT_MEMORIES.map(function(m) {
-    const copy = Object.assign({}, m);
-    if (likesMap[m.id] != null) {
-      copy.likes = likesMap[m.id];
-    }
-    return copy;
-  });
+  var likesMap = loadLikes();
+  try { var old = JSON.parse(localStorage.getItem('bhavya_memories') || 'null'); if (Array.isArray(old)) { old.forEach(function(m) { if (m && m.id != null) { likesMap[m.id] = Math.max(m.likes || 0, likesMap[m.id] || 0); } }); saveLikes(likesMap); localStorage.removeItem('bhavya_memories'); } } catch(e) {}
+  return DEFAULT_MEMORIES.map(function(m) { var c = Object.assign({}, m); if (likesMap[m.id] != null) c.likes = likesMap[m.id]; return c; });
 }
 
 var memData = buildMemData();
 var memFilter = 'all';
 
-function esc(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/'/g, '&#39;')
-    .replace(/"/g, '&quot;');
-}
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;').replace(/"/g,'&quot;'); }
 
 function renderMem() {
-  var grid = document.getElementById('memGrid');
-  if (!grid) return;
-  grid.innerHTML = '';
-
-  var filtered = memFilter === 'all'
-    ? memData
-    : memData.filter(function(m) {
-        return m.category.toLowerCase() === memFilter.toLowerCase();
-      });
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="mem-empty">No memories in this category yet. 💜</div>';
-    return;
-  }
-
+  var grid = document.getElementById('memGrid'); if (!grid) return; grid.innerHTML = '';
+  var filtered = memFilter === 'all' ? memData : memData.filter(function(m) { return m.category.toLowerCase() === memFilter.toLowerCase(); });
+  if (filtered.length === 0) { grid.innerHTML = '<div class="mem-empty">No memories in this category yet. 💜</div>'; return; }
   filtered.forEach(function(m) {
-    var card = document.createElement('div');
-    card.className = 'mem-card reveal visible';
-
-    var imgHTML = m.image
-      ? '<img src="' + esc(m.image) + '" class="mem-card-img" alt="' + esc(m.title) + '" loading="lazy"/>'
-      : '';
-
-    card.innerHTML =
-      imgHTML +
-      '<div class="mem-card-body">' +
-        '<div class="mem-card-tag-row">' +
-          '<span class="mem-tag">' + esc(m.category) + '</span>' +
-          '<span class="mem-time">' + esc(m.date || '') + '</span>' +
-        '</div>' +
-        '<h3 class="mem-card-title">' + esc(m.title) + '</h3>' +
-        '<p class="mem-card-text">' + esc(m.story) + '</p>' +
-        '<div class="mem-card-footer">' +
-          '<span class="mem-author">— <strong>' + esc(m.author) + '</strong></span>' +
-          '<button class="mem-like-btn" data-id="' + m.id + '">' +
-            '❤️ <span>' + (m.likes || 0) + '</span>' +
-          '</button>' +
-        '</div>' +
-      '</div>';
-
+    var card = document.createElement('div'); card.className = 'mem-card reveal visible';
+    var imgHTML = m.image ? '<img src="' + esc(m.image) + '" class="mem-card-img" alt="' + esc(m.title) + '" loading="lazy"/>' : '';
+    card.innerHTML = imgHTML + '<div class="mem-card-body"><div class="mem-card-tag-row"><span class="mem-tag">' + esc(m.category) + '</span><span class="mem-time">' + esc(m.date || '') + '</span></div><h3 class="mem-card-title">' + esc(m.title) + '</h3><p class="mem-card-text">' + esc(m.story) + '</p><div class="mem-card-footer"><span class="mem-author">— <strong>' + esc(m.author) + '</strong></span><button class="mem-like-btn" data-id="' + m.id + '">❤️ <span>' + (m.likes || 0) + '</span></button></div></div>';
     grid.appendChild(card);
   });
-
-  grid.querySelectorAll('.mem-like-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      likeMem(parseInt(this.getAttribute('data-id'), 10));
-    });
-  });
+  grid.querySelectorAll('.mem-like-btn').forEach(function(btn) { btn.addEventListener('click', function() { likeMem(parseInt(this.getAttribute('data-id'), 10)); }); });
 }
 
 function likeMem(id) {
-  memData = memData.map(function(m) {
-    if (m.id === id) {
-      return Object.assign({}, m, { likes: (m.likes || 0) + 1 });
-    }
-    return m;
-  });
-
-  var likesMap = loadLikes();
-  var item = memData.find(function(m) { return m.id === id; });
-  if (item) {
-    likesMap[id] = item.likes;
-    saveLikes(likesMap);
-  }
-
-  renderMem();
+  memData = memData.map(function(m) { if (m.id === id) return Object.assign({}, m, { likes: (m.likes||0) + 1 }); return m; });
+  var likesMap = loadLikes(); var item = memData.find(function(m) { return m.id === id; }); if (item) { likesMap[id] = item.likes; saveLikes(likesMap); } renderMem();
 }
 
 function filterMem(cat, btn) {
-  memFilter = cat;
-  document.querySelectorAll('.mem-filter-btn').forEach(function(b) {
-    b.classList.remove('active');
-  });
-  if (btn) btn.classList.add('active');
-  renderMem();
+  memFilter = cat; document.querySelectorAll('.mem-filter-btn').forEach(function(b) { b.classList.remove('active'); }); if (btn) btn.classList.add('active'); renderMem();
 }
 
-/* =====================================================
-   SLIDER SYSTEM
-   ===================================================== */
-var currentSlide = 0;
-var slides = document.querySelectorAll('.slide');
-var slider = document.getElementById('slider');
-var totalSlides = slides.length;
-var dotsContainer = document.getElementById('slide-dots');
-var palette = ['#cdb4db', '#b76e79', '#eec9cd', '#efe6f7', '#e8b4b8'];
-
-for (var i = 0; i < totalSlides; i++) {
-  var d = document.createElement('div');
-  d.className = 'dot';
-  dotsContainer.appendChild(d);
-}
+var currentSlide = 0, slides = document.querySelectorAll('.slide'), slider = document.getElementById('slider'), totalSlides = slides.length, dotsContainer = document.getElementById('slide-dots'), palette = ['#cdb4db','#b76e79','#eec9cd','#efe6f7','#e8b4b8'];
+for (var i = 0; i < totalSlides; i++) { var d = document.createElement('div'); d.className = 'dot'; dotsContainer.appendChild(d); }
 var dots = document.querySelectorAll('.dot');
 
 function updateSlide(index) {
-  if (index < 0 || index >= totalSlides) return;
-  currentSlide = index;
+  if (index < 0 || index >= totalSlides) return; currentSlide = index;
   slider.style.transform = 'translateX(-' + (currentSlide * 100) + 'vw)';
-
-  dots.forEach(function(d, i) {
-    d.classList.toggle('active', i === currentSlide);
-  });
-
-  var content = slides[currentSlide].querySelector('.slide-content');
-  if (content) content.scrollTop = 0;
-
+  dots.forEach(function(d, i) { d.classList.toggle('active', i === currentSlide); });
+  var content = slides[currentSlide].querySelector('.slide-content'); if (content) content.scrollTop = 0;
   var reveals = slides[currentSlide].querySelectorAll('.reveal');
-  reveals.forEach(function(el, i) {
-    setTimeout(function() { el.classList.add('visible'); }, 150 + i * 120);
-  });
-
+  reveals.forEach(function(el, i) { setTimeout(function() { el.classList.add('visible'); }, 150 + i * 120); });
   if (currentSlide === 1) triggerAgeCounter();
   if (currentSlide === 5) renderMem();
   if (currentSlide === 8) triggerCreditsConfetti();
   if (currentSlide === 10) generateHearts();
 }
 
-document.querySelectorAll('.next-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    updateSlide(parseInt(this.getAttribute('data-next')));
-  });
-});
+document.querySelectorAll('.next-btn').forEach(function(btn) { btn.addEventListener('click', function() { updateSlide(parseInt(this.getAttribute('data-next'))); }); });
+document.getElementById('special-btn').addEventListener('click', function() { updateSlide(9); });
 
-document.getElementById('special-btn').addEventListener('click', function() {
-  updateSlide(9);
-});
-
-/* =====================================================
-   AGE COUNTER
-   ===================================================== */
 var counterTriggered = false;
 function triggerAgeCounter() {
-  if (counterTriggered) return;
-  counterTriggered = true;
-  var n = 0;
-  var counterEl = document.getElementById('age-counter');
-  var tick = setInterval(function() {
-    n++;
-    counterEl.textContent = n;
-    if (n >= 17) {
-      clearInterval(tick);
-      document.getElementById('level-msg').classList.add('unlocked');
-      if (window.confetti) {
-        confetti({ particleCount: 80, spread: 70, origin: { y: 0.7 }, colors: palette });
-      }
-    }
-  }, 100);
+  if (counterTriggered) return; counterTriggered = true; var n = 0, counterEl = document.getElementById('age-counter');
+  var tick = setInterval(function() { n++; counterEl.textContent = n; if (n >= 17) { clearInterval(tick); document.getElementById('level-msg').classList.add('unlocked'); if (window.confetti) confetti({ particleCount: 80, spread: 70, origin: { y: 0.7 }, colors: palette }); } }, 100);
 }
 
-/* =====================================================
-   CREDITS CONFETTI
-   ===================================================== */
 var creditsTriggered = false;
 function triggerCreditsConfetti() {
-  if (creditsTriggered) return;
-  creditsTriggered = true;
-  if (window.confetti) {
-    confetti({ particleCount: 150, spread: 120, origin: { y: 0.5 }, colors: palette });
-    var end = Date.now() + 3000;
-    (function frame() {
-      confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: palette });
-      confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: palette });
-      if (Date.now() < end) requestAnimationFrame(frame);
-    })();
-  }
+  if (creditsTriggered) return; creditsTriggered = true;
+  if (window.confetti) { confetti({ particleCount: 150, spread: 120, origin: { y: 0.5 }, colors: palette }); var end = Date.now() + 3000; (function frame() { confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: palette }); confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: palette }); if (Date.now() < end) requestAnimationFrame(frame); })(); }
 }
 
-/* =====================================================
-   DO YOU LOVE ME - INTERACTION (NO NEVER OVERLAPS YES)
-   ===================================================== */
-var noBtn = document.getElementById('no-btn');
-var yesBtn = document.getElementById('yes-btn');
-var loveSubtext = document.getElementById('love-subtext');
-var loveEmoji = document.getElementById('love-emoji');
-var attemptCounter = document.getElementById('attempt-counter');
-var answerArea = document.getElementById('answer-area');
-var noAttempts = 0;
-var noScale = 1;
-
-var subtexts = [
-  "choose wisely...",
-  "are you sure? 🤨",
-  "think again...",
-  "really?! 😢",
-  "you're breaking my heart 💔",
-  "okay this is getting personal 😭",
-  "the button is literally running away from you",
-  "just press yes already 😤",
-  "i won't give up 🥺",
-  "NO is not an option bestie",
-  "your finger can't even reach it anymore 😹",
-  "this is embarrassing for you at this point"
-];
-
-var emojiList = ["🥺", "😢", "😭", "💔", "😤", "🥹", "😿", "😩", "🙃", "😵‍💫", "🫠", "👉👈"];
+var noBtn = document.getElementById('no-btn'), yesBtn = document.getElementById('yes-btn'), loveSubtext = document.getElementById('love-subtext'), loveEmoji = document.getElementById('love-emoji'), attemptCounter = document.getElementById('attempt-counter'), answerArea = document.getElementById('answer-area'), noAttempts = 0, noScale = 1;
+var subtexts = ["choose wisely...","are you sure? 🤨","think again...","really?! 😢","you're breaking my heart 💔","okay this is getting personal 😭","the button is literally running away from you","just press yes already 😤","i won't give up 🥺","NO is not an option bestie","your finger can't even reach it anymore 😹","this is embarrassing for you at this point"];
+var emojiList = ["🥺","😢","😭","💔","😤","🥹","😿","😩","🙃","😵‍💫","🫠","👉👈"];
 
 function handleNo() {
-  noAttempts++;
-  noScale = Math.max(0.2, noScale - 0.08);
-
-  noBtn.classList.add('runaway');
-
-  var areaRect = answerArea.getBoundingClientRect();
-  var yesRect = yesBtn.getBoundingClientRect();
-
-  var btnW = Math.max(40, noBtn.offsetWidth * noScale);
-  var btnH = Math.max(28, noBtn.offsetHeight * noScale);
-
-  var maxX = Math.max(0, areaRect.width - btnW - 10);
-  var maxY = Math.max(0, areaRect.height - btnH - 10);
-
-  // Yes button box in local coords (with padding buffer)
-  var pad = 20;
-  var yesLeft = (yesRect.left - areaRect.left) - pad;
-  var yesRight = (yesRect.right - areaRect.left) + pad;
-  var yesTop = (yesRect.top - areaRect.top) - pad;
-  var yesBottom = (yesRect.bottom - areaRect.top) + pad;
-
-  function overlapsYes(x, y) {
-    var left = x;
-    var right = x + btnW;
-    var top = y;
-    var bottom = y + btnH;
-    return !(right < yesLeft || left > yesRight || bottom < yesTop || top > yesBottom);
-  }
-
-  // Try up to 40 random spots
-  var randX = 5;
-  var randY = 5;
-  var found = false;
-  for (var i = 0; i < 40; i++) {
-    var tx = Math.max(5, Math.random() * maxX);
-    var ty = Math.max(5, Math.random() * maxY);
-    if (!overlapsYes(tx, ty)) {
-      randX = tx;
-      randY = ty;
-      found = true;
-      break;
-    }
-  }
-
-  // Fallback: force opposite side of Yes
-  if (!found) {
-    var yesCenterX = (yesLeft + yesRight) / 2;
-    if (yesCenterX < areaRect.width / 2) {
-      randX = Math.min(maxX, areaRect.width - btnW - 12);
-    } else {
-      randX = 12;
-    }
-    randY = Math.max(5, Math.min(maxY, areaRect.height - btnH - 12));
-  }
-
-  noBtn.style.left = randX + 'px';
-  noBtn.style.top = randY + 'px';
+  noAttempts++; noScale = Math.max(0.2, noScale - 0.08); noBtn.classList.add('runaway');
+  var areaRect = answerArea.getBoundingClientRect(), yesRect = yesBtn.getBoundingClientRect();
+  var btnW = Math.max(40, noBtn.offsetWidth * noScale), btnH = Math.max(28, noBtn.offsetHeight * noScale);
+  var maxX = Math.max(0, areaRect.width - btnW - 10), maxY = Math.max(0, areaRect.height - btnH - 10);
+  var pad = 20, yesLeft = (yesRect.left - areaRect.left) - pad, yesRight = (yesRect.right - areaRect.left) + pad, yesTop = (yesRect.top - areaRect.top) - pad, yesBottom = (yesRect.bottom - areaRect.top) + pad;
+  function overlapsYes(x, y) { return !((x + btnW) < yesLeft || x > yesRight || (y + btnH) < yesTop || y > yesBottom); }
+  var randX = 5, randY = 5, found = false;
+  for (var i = 0; i < 40; i++) { var tx = Math.max(5, Math.random() * maxX), ty = Math.max(5, Math.random() * maxY); if (!overlapsYes(tx, ty)) { randX = tx; randY = ty; found = true; break; } }
+  if (!found) { var yesCenterX = (yesLeft + yesRight) / 2; if (yesCenterX < areaRect.width / 2) randX = Math.min(maxX, areaRect.width - btnW - 12); else randX = 12; randY = Math.max(5, Math.min(maxY, areaRect.height - btnH - 12)); }
+  noBtn.style.left = randX + 'px'; noBtn.style.top = randY + 'px';
   noBtn.style.transform = 'scale(' + noScale + ') rotate(' + (Math.random() * 30 - 15) + 'deg)';
   noBtn.style.fontSize = Math.max(0.5, 1.3 * noScale) + 'rem';
   noBtn.style.padding = Math.max(6, 16 * noScale) + 'px ' + Math.max(14, 48 * noScale) + 'px';
-
-  var subtextIndex = Math.min(noAttempts - 1, subtexts.length - 1);
-  var emojiIndex = Math.min(noAttempts - 1, emojiList.length - 1);
-  loveSubtext.textContent = subtexts[subtextIndex];
-  loveEmoji.textContent = emojiList[emojiIndex];
-
-  var yesScale = Math.min(1.45, 1 + noAttempts * 0.05);
-  yesBtn.style.transform = 'scale(' + yesScale + ')';
-  yesBtn.style.zIndex = '6';
-  noBtn.style.zIndex = '5';
-
+  loveSubtext.textContent = subtexts[Math.min(noAttempts - 1, subtexts.length - 1)];
+  loveEmoji.textContent = emojiList[Math.min(noAttempts - 1, emojiList.length - 1)];
+  var yesScale = Math.min(1.45, 1 + noAttempts * 0.05); yesBtn.style.transform = 'scale(' + yesScale + ')'; yesBtn.style.zIndex = '6'; noBtn.style.zIndex = '5';
   attemptCounter.textContent = 'attempt #' + noAttempts + ' 😹';
-
-  if (window.confetti) {
-    confetti({
-      particleCount: 6,
-      spread: 30,
-      startVelocity: 10,
-      origin: {
-        x: (areaRect.left + randX + btnW / 2) / window.innerWidth,
-        y: (areaRect.top + randY + btnH / 2) / window.innerHeight
-      },
-      colors: ['#e74c3c', '#c0392b'],
-      shapes: ['circle']
-    });
-  }
+  if (window.confetti) confetti({ particleCount: 6, spread: 30, startVelocity: 10, origin: { x: (areaRect.left + randX + btnW / 2) / window.innerWidth, y: (areaRect.top + randY + btnH / 2) / window.innerHeight }, colors: ['#e74c3c','#c0392b'], shapes: ['circle'] });
 }
 
-noBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  handleNo();
-});
-noBtn.addEventListener('touchstart', function(e) {
-  e.preventDefault();
-  handleNo();
-}, { passive: false });
+noBtn.addEventListener('click', function(e) { e.preventDefault(); handleNo(); });
+noBtn.addEventListener('touchstart', function(e) { e.preventDefault(); handleNo(); }, { passive: false });
 
 function handleYes() {
-  if (window.confetti) {
-    confetti({
-      particleCount: 300, spread: 160, origin: { y: 0.5 },
-      colors: ['#ff6b9d', '#c44dff', '#ffb347', '#2ecc71', '#cdb4db']
-    });
-    var end = Date.now() + 4000;
-    (function frame() {
-      confetti({ particleCount: 8, angle: 60, spread: 60, origin: { x: 0 }, colors: palette });
-      confetti({ particleCount: 8, angle: 120, spread: 60, origin: { x: 1 }, colors: palette });
-      if (Date.now() < end) requestAnimationFrame(frame);
-    })();
-  }
+  if (window.confetti) { confetti({ particleCount: 300, spread: 160, origin: { y: 0.5 }, colors: ['#ff6b9d','#c44dff','#ffb347','#2ecc71','#cdb4db'] }); var end = Date.now() + 4000; (function frame() { confetti({ particleCount: 8, angle: 60, spread: 60, origin: { x: 0 }, colors: palette }); confetti({ particleCount: 8, angle: 120, spread: 60, origin: { x: 1 }, colors: palette }); if (Date.now() < end) requestAnimationFrame(frame); })(); }
   setTimeout(function() { updateSlide(10); }, 800);
 }
-
 yesBtn.addEventListener('click', handleYes);
 
-/* =====================================================
-   FLOATING HEARTS (Slide 10)
-   ===================================================== */
 function generateHearts() {
-  var container = document.getElementById('hearts-rain');
-  container.innerHTML = '';
-  var heartEmojis = ['💜', '💗', '💖', '💕', '💘', '💝', '🤍', '💜'];
-  for (var i = 0; i < 30; i++) {
-    var heart = document.createElement('div');
-    heart.className = 'floating-heart';
-    heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.fontSize = (1 + Math.random() * 2) + 'rem';
-    heart.style.animationDuration = (4 + Math.random() * 6) + 's';
-    heart.style.animationDelay = (Math.random() * 5) + 's';
-    container.appendChild(heart);
-  }
-  if (window.confetti) {
-    var end = Date.now() + 5000;
-    (function frame() {
-      confetti({
-        particleCount: 3, spread: 50,
-        origin: { x: Math.random(), y: 0 },
-        colors: ['#ff6b9d', '#c44dff', '#cdb4db', '#ffb347']
-      });
-      if (Date.now() < end) requestAnimationFrame(frame);
-    })();
-  }
+  var container = document.getElementById('hearts-rain'); container.innerHTML = '';
+  var heartEmojis = ['💜','💗','💖','💕','💘','💝','🤍','💜'];
+  for (var i = 0; i < 30; i++) { var heart = document.createElement('div'); heart.className = 'floating-heart'; heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)]; heart.style.left = Math.random() * 100 + '%'; heart.style.fontSize = (1 + Math.random() * 2) + 'rem'; heart.style.animationDuration = (4 + Math.random() * 6) + 's'; heart.style.animationDelay = (Math.random() * 5) + 's'; container.appendChild(heart); }
+  if (window.confetti) { var end = Date.now() + 5000; (function frame() { confetti({ particleCount: 3, spread: 50, origin: { x: Math.random(), y: 0 }, colors: ['#ff6b9d','#c44dff','#cdb4db','#ffb347'] }); if (Date.now() < end) requestAnimationFrame(frame); })(); }
 }
 
-/* =====================================================
-   CAKE & CANDLES
-   ===================================================== */
-var candlesRow = document.getElementById('candles-row');
-var candleColors = ['#ffb7c5', '#c9a5e0', '#f7c5d0', '#b8d4e3'];
-var TOTAL_CANDLES = 4;
-var TAPS_PER_CANDLE = 4;
-var totalTapsRemaining = TOTAL_CANDLES * TAPS_PER_CANDLE;
-var allBlown = false;
-
+var candlesRow = document.getElementById('candles-row'), candleColors = ['#ffb7c5','#c9a5e0','#f7c5d0','#b8d4e3'], TOTAL_CANDLES = 4, TAPS_PER_CANDLE = 4, totalTapsRemaining = TOTAL_CANDLES * TAPS_PER_CANDLE, allBlown = false;
 for (var c = 0; c < TOTAL_CANDLES; c++) {
-  var unit = document.createElement('div');
-  unit.className = 'candle-unit';
-  unit.dataset.taps = TAPS_PER_CANDLE;
-
-  var badge = document.createElement('div');
-  badge.className = 'tap-badge';
-  badge.textContent = TAPS_PER_CANDLE;
-
-  var flameWrap = document.createElement('div');
-  flameWrap.className = 'flame-wrap';
-  flameWrap.dataset.index = c;
-
-  var flame = document.createElement('div');
-  flame.className = 'flame';
-  flame.style.animationDelay = (Math.random() * 0.1) + 's';
-
-  var smoke = document.createElement('div');
-  smoke.className = 'smoke';
-
-  flameWrap.appendChild(flame);
-  flameWrap.appendChild(smoke);
-
-  var stick = document.createElement('div');
-  stick.className = 'candle-stick';
-  stick.style.background = candleColors[c % candleColors.length];
-
-  unit.appendChild(badge);
-  unit.appendChild(flameWrap);
-  unit.appendChild(stick);
-  candlesRow.appendChild(unit);
+  var unit = document.createElement('div'); unit.className = 'candle-unit'; unit.dataset.taps = TAPS_PER_CANDLE;
+  var badge = document.createElement('div'); badge.className = 'tap-badge'; badge.textContent = TAPS_PER_CANDLE;
+  var flameWrap = document.createElement('div'); flameWrap.className = 'flame-wrap'; flameWrap.dataset.index = c;
+  var flame = document.createElement('div'); flame.className = 'flame'; flame.style.animationDelay = (Math.random() * 0.1) + 's';
+  var smoke = document.createElement('div'); smoke.className = 'smoke';
+  flameWrap.appendChild(flame); flameWrap.appendChild(smoke);
+  var stick = document.createElement('div'); stick.className = 'candle-stick'; stick.style.background = candleColors[c % candleColors.length];
+  unit.appendChild(badge); unit.appendChild(flameWrap); unit.appendChild(stick); candlesRow.appendChild(unit);
 }
 
-var cake = document.getElementById('cake');
-var blowPrompt = document.getElementById('blow-prompt');
-var blowCounter = document.getElementById('blow-counter');
-var candleGlow = document.getElementById('candle-glow');
+var cake = document.getElementById('cake'), blowPrompt = document.getElementById('blow-prompt'), blowCounter = document.getElementById('blow-counter'), candleGlow = document.getElementById('candle-glow');
 
 function blowCandle() {
   if (allBlown) return;
-
-  var litCandles = candlesRow.querySelectorAll('.candle-unit:not(.blown-out)');
-  if (litCandles.length === 0) return;
-
+  var litCandles = candlesRow.querySelectorAll('.candle-unit:not(.blown-out)'); if (litCandles.length === 0) return;
   var target = litCandles[Math.floor(Math.random() * litCandles.length)];
-  var taps = parseInt(target.dataset.taps) - 1;
-  target.dataset.taps = taps;
-  totalTapsRemaining--;
-
-  target.classList.add('shake');
-  setTimeout(function() { target.classList.remove('shake'); }, 300);
-
-  var badgeEl = target.querySelector('.tap-badge');
-  var fw = target.querySelector('.flame-wrap');
-
-  if (taps > 0) {
-    badgeEl.textContent = taps;
-    fw.className = 'flame-wrap stage-' + taps;
-    if (window.confetti) {
-      confetti({ particleCount: 4, spread: 25, startVelocity: 12, origin: { x: 0.5, y: 0.3 }, colors: palette });
-    }
-  } else {
-    target.classList.add('blown-out');
-    fw.classList.add('blown-out');
-    badgeEl.classList.add('hidden');
-    target.querySelector('.smoke').classList.add('puff');
-    if (window.confetti) {
-      confetti({ particleCount: 18, spread: 45, startVelocity: 18, origin: { x: 0.5, y: 0.3 }, colors: palette });
-    }
-  }
-
+  var taps = parseInt(target.dataset.taps) - 1; target.dataset.taps = taps; totalTapsRemaining--;
+  target.classList.add('shake'); setTimeout(function() { target.classList.remove('shake'); }, 300);
+  var badgeEl = target.querySelector('.tap-badge'), fw = target.querySelector('.flame-wrap');
+  if (taps > 0) { badgeEl.textContent = taps; fw.className = 'flame-wrap stage-' + taps; if (window.confetti) confetti({ particleCount: 4, spread: 25, startVelocity: 12, origin: { x: 0.5, y: 0.3 }, colors: palette }); }
+  else { target.classList.add('blown-out'); fw.classList.add('blown-out'); badgeEl.classList.add('hidden'); target.querySelector('.smoke').classList.add('puff'); if (window.confetti) confetti({ particleCount: 18, spread: 45, startVelocity: 18, origin: { x: 0.5, y: 0.3 }, colors: palette }); }
   blowCounter.textContent = '🔥 ' + totalTapsRemaining + ' tap' + (totalTapsRemaining !== 1 ? 's' : '') + ' remaining';
   candleGlow.style.opacity = totalTapsRemaining / (TOTAL_CANDLES * TAPS_PER_CANDLE);
-
   if (totalTapsRemaining <= 0) {
-    allBlown = true;
-    blowPrompt.textContent = '🎉 Make a wish! ✨';
-    blowPrompt.style.animation = 'none';
-    blowCounter.textContent = '';
-    cake.classList.add('cake-celebrate');
-
-    if (window.confetti) {
-      confetti({ particleCount: 250, spread: 140, origin: { y: 0.5 }, colors: palette });
-      var confEnd = Date.now() + 3000;
-      (function f() {
-        confetti({ particleCount: 6, angle: 60, spread: 60, origin: { x: 0 }, colors: palette });
-        confetti({ particleCount: 6, angle: 120, spread: 60, origin: { x: 1 }, colors: palette });
-        if (Date.now() < confEnd) requestAnimationFrame(f);
-      })();
-    }
-
-    setTimeout(function() {
-      document.getElementById('cake-intro').classList.add('done');
-      document.getElementById('main-content').classList.add('visible');
-      document.getElementById('slide-dots').classList.add('show');
-      updateSlide(0);
-      tryPlayMusic();
-    }, 2000);
+    allBlown = true; blowPrompt.textContent = '🎉 Make a wish! ✨'; blowPrompt.style.animation = 'none'; blowCounter.textContent = ''; cake.classList.add('cake-celebrate');
+    if (window.confetti) { confetti({ particleCount: 250, spread: 140, origin: { y: 0.5 }, colors: palette }); var confEnd = Date.now() + 3000; (function f() { confetti({ particleCount: 6, angle: 60, spread: 60, origin: { x: 0 }, colors: palette }); confetti({ particleCount: 6, angle: 120, spread: 60, origin: { x: 1 }, colors: palette }); if (Date.now() < confEnd) requestAnimationFrame(f); })(); }
+    setTimeout(function() { document.getElementById('cake-intro').classList.add('done'); document.getElementById('main-content').classList.add('visible'); document.getElementById('slide-dots').classList.add('show'); updateSlide(0); tryPlayMusic(); }, 2000);
   }
 }
-
 cake.addEventListener('click', blowCandle);
-cake.addEventListener('touchstart', function(e) {
-  e.preventDefault();
-  blowCandle();
-}, { passive: false });
+cake.addEventListener('touchstart', function(e) { e.preventDefault(); blowCandle(); }, { passive: false });
 
-/* =====================================================
-   HERO DECORATIONS
-   ===================================================== */
 var heroContent = document.getElementById('hero-content');
+for (var b = 0; b < 7; b++) { var balloon = document.createElement('div'); balloon.className = 'balloon'; balloon.style.left = Math.random() * 92 + '%'; balloon.style.background = 'radial-gradient(circle at 30% 30%, #fff8, ' + palette[b % palette.length] + ')'; balloon.style.animationDuration = (9 + Math.random() * 8) + 's'; balloon.style.animationDelay = (Math.random() * 8) + 's'; heroContent.appendChild(balloon); }
+for (var cd = 0; cd < 16; cd++) { var confDot = document.createElement('div'); confDot.className = 'confetti-dot'; confDot.style.left = Math.random() * 100 + '%'; confDot.style.background = palette[Math.floor(Math.random() * palette.length)]; confDot.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px'; confDot.style.animationDuration = (5 + Math.random() * 7) + 's'; confDot.style.animationDelay = (Math.random() * 6) + 's'; heroContent.appendChild(confDot); }
 
-for (var b = 0; b < 7; b++) {
-  var balloon = document.createElement('div');
-  balloon.className = 'balloon';
-  balloon.style.left = Math.random() * 92 + '%';
-  balloon.style.background = 'radial-gradient(circle at 30% 30%, #fff8, ' + palette[b % palette.length] + ')';
-  balloon.style.animationDuration = (9 + Math.random() * 8) + 's';
-  balloon.style.animationDelay = (Math.random() * 8) + 's';
-  heroContent.appendChild(balloon);
-}
-
-for (var cd = 0; cd < 16; cd++) {
-  var confDot = document.createElement('div');
-  confDot.className = 'confetti-dot';
-  confDot.style.left = Math.random() * 100 + '%';
-  confDot.style.background = palette[Math.floor(Math.random() * palette.length)];
-  confDot.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-  confDot.style.animationDuration = (5 + Math.random() * 7) + 's';
-  confDot.style.animationDelay = (Math.random() * 6) + 's';
-  heroContent.appendChild(confDot);
-}
-
-/* =====================================================
-   MUSIC CONTROLS
-   ===================================================== */
-var audio = document.getElementById('bg-music');
-var musicBtn = document.getElementById('music-toggle');
-var musicOK = true;
+var audio = document.getElementById('bg-music'), musicBtn = document.getElementById('music-toggle'), musicOK = true;
 audio.volume = 0.35;
+audio.addEventListener('error', function() { musicOK = false; musicBtn.textContent = '🎵 add birthday-music.mp3!'; }, true);
+function tryPlayMusic() { if (!musicOK || !audio.paused) return; audio.play().then(function() { musicBtn.textContent = '🔇 Mute'; }).catch(function() {}); }
+musicBtn.addEventListener('click', function() { if (!musicOK) return; if (audio.paused) { audio.play().then(function() { musicBtn.textContent = '🔇 Mute'; }).catch(function() {}); } else { audio.pause(); musicBtn.textContent = '🎵 Play music'; } });
 
-audio.addEventListener('error', function() {
-  musicOK = false;
-  musicBtn.textContent = '🎵 ';
-}, true);
-
-function tryPlayMusic() {
-  if (!musicOK || !audio.paused) return;
-  audio.play().then(function() {
-    musicBtn.textContent = '🔇 Mute';
-  }).catch(function() {});
-}
-
-musicBtn.addEventListener('click', function() {
-  if (!musicOK) return;
-  if (audio.paused) {
-    audio.play().then(function() {
-      musicBtn.textContent = '🔇 Mute';
-    }).catch(function() {});
-  } else {
-    audio.pause();
-    musicBtn.textContent = '🎵 Play music';
-  }
-});
-
-/* =====================================================
-   CONFETTI BUTTON
-   ===================================================== */
 document.getElementById('confetti-btn').addEventListener('click', function() {
-  tryPlayMusic();
-  this.textContent = 'AGAIN. AGAIN! 🎉';
-  if (!window.confetti) return;
+  tryPlayMusic(); this.textContent = 'AGAIN. AGAIN! 🎉'; if (!window.confetti) return;
   confetti({ particleCount: 160, spread: 100, origin: { y: 0.6 }, colors: palette });
-  var end = Date.now() + 1800;
-  (function f() {
-    confetti({ particleCount: 5, angle: 60, spread: 60, origin: { x: 0 }, colors: palette });
-    confetti({ particleCount: 5, angle: 120, spread: 60, origin: { x: 1 }, colors: palette });
-    if (Date.now() < end) requestAnimationFrame(f);
-  })();
+  var end = Date.now() + 1800; (function f() { confetti({ particleCount: 5, angle: 60, spread: 60, origin: { x: 0 }, colors: palette }); confetti({ particleCount: 5, angle: 120, spread: 60, origin: { x: 1 }, colors: palette }); if (Date.now() < end) requestAnimationFrame(f); })();
 });
 
-/* =====================================================
-   EASTER EGG
-   ===================================================== */
-var toast = document.getElementById('toast');
-var toastTimer;
-
+var toast = document.getElementById('toast'), toastTimer;
 document.getElementById('cat-egg').addEventListener('click', function() {
-  toast.textContent = 'WHAT IS THIS BHAVYA 😹';
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2500);
-  if (window.confetti) {
-    confetti({ particleCount: 40, spread: 60, origin: { x: 0.05, y: 0.95 }, colors: palette });
-  }
+  toast.textContent = 'WHAT IS THIS BHAVYA 😹'; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2500);
+  if (window.confetti) confetti({ particleCount: 40, spread: 60, origin: { x: 0.05, y: 0.95 }, colors: palette });
 });
 
-/* =====================================================
-   GIFT BUTTON
-   ===================================================== */
 var giftBtn = document.getElementById('gift-btn');
 giftBtn.addEventListener('click', function(e) {
   var link = giftBtn.getAttribute('href');
-  if (!link || link === '#' || link.trim() === '') {
-    e.preventDefault();
-    toast.textContent = '🎁 Gift loading... check back soon!';
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function() {
-      toast.classList.remove('show');
-      setTimeout(function() { toast.textContent = 'WHAT IS THIS BHAVYA 😹'; }, 400);
-    }, 2500);
-    return;
-  }
-  if (window.confetti) {
-    confetti({
-      particleCount: 220, spread: 130, origin: { y: 0.6 },
-      colors: ['#ff6b9d', '#c44dff', '#ffb347', '#cdb4db', '#2ecc71']
-    });
-  }
+  if (!link || link === '#' || link.trim() === '') { e.preventDefault(); toast.textContent = '🎁 Gift loading... check back soon!'; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(function() { toast.classList.remove('show'); setTimeout(function() { toast.textContent = 'WHAT IS THIS BHAVYA 😹'; }, 400); }, 2500); return; }
+  if (window.confetti) confetti({ particleCount: 220, spread: 130, origin: { y: 0.6 }, colors: ['#ff6b9d','#c44dff','#ffb347','#cdb4db','#2ecc71'] });
 });
 
-/* =====================================================
-   INITIAL RENDER
-   ===================================================== */
-document.addEventListener('DOMContentLoaded', function() {
-  renderMem();
-});
+document.addEventListener('DOMContentLoaded', function() { renderMem(); });
 </script>
 </body>
 </html>
